@@ -6,6 +6,10 @@ import styled from 'styled-components';
 
 const desktop = 700;
 
+const ResponsiveLayout = styled.div`
+  width: 100%;
+`;
+
 const Grid = styled.div`
   @media(min-width: ${desktop}px){
     display: grid;
@@ -35,7 +39,7 @@ const Footer = styled.div`
   width: 100%;
 `;
 
-const MobileView = styled.div`
+const TabsButtonItems = styled.div`
   @media(min-width: 500px){
     display:none;
   }
@@ -79,7 +83,7 @@ handleClick = (name) => {
 
 render () {
     return (
-      <div>
+      <ResponsiveLayout>
       <Header>Header</Header>
       <Grid>
         <TabView activeTab={this.state.activeTab}>
@@ -102,14 +106,13 @@ render () {
         </Grid>
         <Footer>
         Footer
-          <MobileView>
+          <TabsButtonItems>
             <TabButton name="chart" onClick={this.handleClick} />
             <TabButton name="buysell" onClick={this.handleClick} />
             <TabButton name="trade" onClick={this.handleClick} />
-          </MobileView>
+          </TabsButtonItems>
         </Footer>
-
-      </div>
+      </ResponsiveLayout>
     );
   }
 }
