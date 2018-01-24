@@ -1,6 +1,15 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import '../App.css';
+import styled from 'styled-components';
+
+const Button = styled.button`
+  background:  transparent;
+  color: palevioletred;
+  font-size: 1em;
+  padding: 0.25em 1em;
+  border: 2px solid palevioletred;
+  border-radius: 3px;
+`;
 
 class TabButtons extends Component {
 
@@ -15,9 +24,9 @@ class TabButtons extends Component {
 
   render () {
     return(
-  	<button type="button" value={this.props.name} onClick={this.handleClick}>{this.props.name}</button>
-  );
-}
+  	   <Button value={this.props.name} onClick={this.handleClick}>{this.props.name}</Button>
+    );
+  }
 }
 
 export default TabButtons;

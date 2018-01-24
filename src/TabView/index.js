@@ -1,16 +1,21 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import '../App.css';
 
 class TabView extends Component {
   static propTypes = {
     activeTab: PropTypes.string,
   }
+
+  static childContextTypes = {
+  tabSelected: PropTypes.string
+};
+  getChildContext() {
+    return {tabSelected: this.props.activeTab};
+  }
+
   render() {
-    const { activeTab} = this.props;
       return (
-          <div className={activeTab}> {activeTab}
-          </div>
+      <React.Fragment>{this.props.children}</React.Fragment>
       );
     }
   }
